@@ -1,6 +1,7 @@
 import { Alchemy, Network } from 'alchemy-sdk';
 import { useEffect, useState } from 'react';
 import Block from './components/Block';
+import BlockNav from './components/BlockNav';
 import tw from "tailwind-styled-components"
 
 
@@ -50,6 +51,7 @@ function App() {
 
   return (
   <Container className="App">
+    <BlockNav />
     <Block 
       blockNumber={blockNumber}
       block={block}
