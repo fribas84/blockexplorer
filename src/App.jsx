@@ -43,17 +43,26 @@ function App() {
   useEffect(() => {
     async function getBlockNumber() {
       setBlockNumber(await alchemy.core.getBlockNumber());
-      setBlock(await alchemy.core.getBlock() )
+
     }
 
     getBlockNumber();
   },[]);
 
+  useEffect(() => {
+    async function getBlock() {
+      setBlock(await alchemy.core.getBlock(blockNumber))
+    }
+
+    getBlock();
+  },[blockNumber]);
+
   return (
   <Container className="App">
-    <BlockNav />
+    <BlockNav 
+      setBlockNumber = {setBlockNumber}
+      blockNumber = {blockNumber}/>
     <Block 
-      blockNumber={blockNumber}
       block={block}
     />
    

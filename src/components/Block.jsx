@@ -3,7 +3,7 @@ import { Utils } from 'alchemy-sdk';
 
 
 
-const Block = ({ block, blockNumber }) => {
+const Block = ({ block }) => {
   const [currentTime,setCurrentTime] = useState("");
   useEffect(()=>{
     const convertTimeStamp = () =>{
@@ -13,10 +13,6 @@ const Block = ({ block, blockNumber }) => {
     }
     convertTimeStamp();
   })
-  console.log(block);
-  console.log(block.timestamp);
-  console.log(typeof(block.timestamp));
-  console.log(Object(block.gasUsed).value);
   return (
     <>
     {Object.keys(block).length > 0 && (
@@ -27,7 +23,7 @@ const Block = ({ block, blockNumber }) => {
   <tbody>
     <tr className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
       <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-       Block Height: 
+       Block Number: 
       </th>
       <td className="px-6 py-4">
         {block.number}

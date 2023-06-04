@@ -13,12 +13,16 @@ rounded
 mx-1
 `
 
-const BlockNav = () => {
+const BlockNav = ({setBlockNumber,blockNumber}) => {
+
+  const prevBlock = ()=>{
+    setBlockNumber(blockNumber - 1);
+  }
   return (
     <div className='m-1.5'> 
-            <Button>  {'< '} Previous </Button>
+            <Button onClick={prevBlock}>  {'< '} Previous </Button>
             <Button>  Next {' >'} </Button>
-
+            <Button>  Last {' >>'} </Button>
     </div>
 
   )
