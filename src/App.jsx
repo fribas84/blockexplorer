@@ -2,6 +2,7 @@ import { Alchemy, Network } from 'alchemy-sdk';
 import { useEffect, useState } from 'react';
 import Block from './components/Block';
 import BlockNav from './components/BlockNav';
+import Transactions from './components/Transactions';
 import tw from "tailwind-styled-components"
 
 
@@ -39,32 +40,47 @@ mx-auto
 function App() {
   const [blockNumber, setBlockNumber] = useState();
   const [block, setBlock] = useState({});
+  const [lastBlock, setLastBlock] = useState();
 
-  useEffect(() => {
-    async function getBlockNumber() {
+
+  const getLastBlock = async ()=>{
+    const lastblock = await alchemy.core.getBlockNumber()
+    setLastBlock(lastblock);
+  }
+
+  useEffect( () => {
+    const loadData = async () => {
+      
       setBlockNumber(await alchemy.core.getBlockNumber());
-
     }
 
-    getBlockNumber();
+    loadData();
   },[]);
 
   useEffect(() => {
-    async function getBlock() {
-      setBlock(await alchemy.core.getBlock(blockNumber))
-    }
+    const getBlock = async () => {
+      console.log("block number dentro de useeffect f:",blockNumber);
 
+      setBlock(await alchemy.core.getBlockWithTransactions(blockNumber))
+    }
+    console.log("block number dentro de useeffect:",blockNumber);
     getBlock();
   },[blockNumber]);
 
+  console.log("block number :", blockNumber);
   return (
   <Container className="App">
     <BlockNav 
       setBlockNumber = {setBlockNumber}
-      blockNumber = {blockNumber}/>
+      blockNumber = {blockNumber}
+      getLastBlock = {getLastBlock}
+      lastBlock = {lastBlock}
+      block={block}/>
     <Block 
       block={block}
     />
+    <Transactions 
+      block = {block}/>
    
 
   </Container>)
