@@ -1,38 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import {React, useEffect, useState } from 'react';
 import { Utils } from 'alchemy-sdk';
-import tw from "tailwind-styled-components";
+import {Div,Table,Tr,Th,Td} from './styled'
 
-const Div = tw.div`
-relative
-overflow-x-auto
-shadow-md
-sm:rounded-lg
-`
-
-const Table = tw.table`
-w-full
-text-sm
-text-left
-text-gray-500
-dark:text-gray-400"
-`
-
-const Tr = tw.tr`
-bg-white
-border-b
-dark:bg-gray-900
-dark:border-gray-700
-`
-
-const Th = tw.th`
-px-6
-py-4
-font-medium
-text-gray-900
-whitespace-nowrap
-dark:text-white
-`
 const Block = ({ block }) => {
+  console.log(block.transactions);
   const [currentTime,setCurrentTime] = useState("");
   useEffect(()=>{
     const convertTimeStamp = () =>{
@@ -53,74 +24,74 @@ const Block = ({ block }) => {
       <Th scope="row">
        Block Number: 
       </Th>
-      <td className="px-6 py-4">
+      <Td>
         {block.number}
-      </td>
+      </Td>
     </Tr>
     <Tr>
       <Th scope="row" >
        Hash: 
       </Th>
-      <td className="px-6 py-4">
+      <Td>
         {block.hash}
-      </td>
+      </Td>
     </Tr>
     <Tr>
       <Th scope="row">
        Parent Hash: 
       </Th>
-      <td className="px-6 py-4">
+      <Td>
         {block.parentHash}
-      </td>
+      </Td>
     </Tr>
     <Tr>
       <Th scope="row">
        Time Stamp: 
       </Th>
-      <td className="px-6 py-4">
+      <Td>
     
         {currentTime}
-      </td>
+      </Td>
     </Tr>
     <Tr>
       <Th scope="row">
        Gas Used: 
       </Th>
-      <td className="px-6 py-4">
+      <Td>
         {Utils.formatUnits(block.gasUsed,"wei")} wei / {Utils.formatEther(block.gasUsed)} eth
-      </td>
+      </Td>
     </Tr>
     <Tr>
       <Th scope="row">
        Gas Limit: 
       </Th>
-      <td className="px-6 py-4">
+      <Td>
       {Utils.formatUnits(block.gasLimit,"wei")} wei / {Utils.formatEther(block.gasLimit)} eth
-      </td>
+      </Td>
     </Tr>
     <Tr>
       <Th scope="row">
         Miner / Validator: 
       </Th>
-      <td className="px-6 py-4">
+      <Td>
         {block.miner}
-      </td>
+      </Td>
     </Tr>
     <Tr>
       <Th scope="row">
        Fee: 
       </Th>
-      <td className="px-6 py-4">
+      <Td>
       {Utils.formatUnits(block.baseFeePerGas,"wei")} wei / {Utils.formatEther(block.baseFeePerGas)} eth
-      </td>
+      </Td>
     </Tr>
     <Tr>
       <Th scope="row">
        Transactions: 
       </Th>
-      <td className="px-6 py-4">
+      <Td>
         {Object(block.transactions).length} transactions
-      </td>
+      </Td>
     </Tr>
     </tbody>
 </Table>

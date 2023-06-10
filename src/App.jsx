@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react';
 import Block from './components/Block';
 import BlockNav from './components/BlockNav';
 import Transactions from './components/Transactions';
-import tw from "tailwind-styled-components"
+import {Container} from './components/styled'
+
 
 
 // Refer to the README doc for more information about using API
@@ -23,20 +24,6 @@ const settings = {
 //   https://docs.alchemy.com/reference/alchemy-sdk-api-surface-overview#api-surface
 const  alchemy = new Alchemy(settings);
 
-
-const Container = tw.div`
-flex
-items-center
-justify-center
-flex-col
-w-90
-grid-cols-1
-mt-15
-pt-10
-mx-auto
-`
-
-
 function App() {
   const [blockNumber, setBlockNumber] = useState();
   const [block, setBlock] = useState({});
@@ -49,25 +36,19 @@ function App() {
   }
 
   useEffect( () => {
-    const loadData = async () => {
-      
+    const loadData = async () => { 
       setBlockNumber(await alchemy.core.getBlockNumber());
     }
-
     loadData();
   },[]);
 
   useEffect(() => {
     const getBlock = async () => {
-      console.log("block number dentro de useeffect f:",blockNumber);
-
       setBlock(await alchemy.core.getBlockWithTransactions(blockNumber))
     }
-    console.log("block number dentro de useeffect:",blockNumber);
     getBlock();
   },[blockNumber]);
 
-  console.log("block number :", blockNumber);
   return (
   <Container className="App">
     <BlockNav 
@@ -80,7 +61,7 @@ function App() {
       block={block}
     />
     <Transactions 
-      block = {block}/>
+      blockTxs = {block.transactions}/>
    
 
   </Container>)
