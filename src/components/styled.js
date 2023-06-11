@@ -4,7 +4,7 @@ export const Div = tw.div`
 relative
 overflow-x-auto
 shadow-md
-sm:rounded-lg
+sm:rounded-lg   
 `
 
 export const Table = tw.table`
@@ -12,14 +12,15 @@ w-full
 text-sm
 text-left
 text-gray-500
-dark:text-gray-400"
-mt-0.5
+dark:text-gray-400
+shadow-md
+sm:rounded-lg
+m-3
 `
 
 export const Tr = tw.tr`
 bg-white
-border-b
-dark:bg-gray-900
+dark:bg-gray-700
 dark:border-gray-700
 `
 
@@ -27,9 +28,8 @@ export const Th = tw.th`
 px-6
 py-4
 font-medium
-text-gray-900
+text-gray-300
 whitespace-nowrap
-dark:text-white
 `
 
 export const Container = tw.div`
@@ -45,6 +45,7 @@ mx-auto
 `
 
 export const Td = tw.td`
-px-6
-py-4
+mx-3
+px-3
+text-white
 `
