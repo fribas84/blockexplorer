@@ -16,8 +16,7 @@ const BlockNav = ({setBlockNumber,blockNumber,getLastBlock,lastBlock,block}) => 
 
   const prevBlock = ()=>{
     const prevBlock = blockNumber - 1;
-    console.log("block number :", block);
-    console.log("Prev Block :",prevBlock);
+
     setBlockNumber(prevBlock);
   }
 
