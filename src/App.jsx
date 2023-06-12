@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import Block from './components/Block';
 import BlockNav from './components/BlockNav';
 import Transactions from './components/Transactions';
-import {Container} from './components/styled'
 
 
 

@@ -1,7 +1,6 @@
 
-import { Div, Table, Tr, Th } from './styled'
 import ReactPaginate from 'react-paginate';
-import { React, useEffect, useState } from 'react';
+import { useState } from 'react';
 import Items from './Items';
 
 

@@ -1,6 +1,5 @@
-import {React, useEffect, useState } from 'react';
+import {useEffect, useState } from 'react';
 import { Utils } from 'alchemy-sdk';
-import {Div,Table,Tr,Th,Td,Tbody} from './styled';
 
 
 const Block = ({ block }) => {

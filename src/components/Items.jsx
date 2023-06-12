@@ -1,5 +1,3 @@
-import React from 'react';
-import { Div, Table, Tr, Th, Td} from './styled';
 import { Utils } from 'alchemy-sdk';
 
 
