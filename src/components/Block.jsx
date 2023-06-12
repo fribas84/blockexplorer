@@ -19,6 +19,7 @@ const Block = ({ block }) => {
     {Object.keys(block).length > 0 && (
 
 <div className='grid place-items-center'>
+<h2 className='text-2xl text-bold  dark:text-black mt-2'> Block Metadata </h2>
 <table 
   className='w-3/4 bg-white shadow mt-5 table-auto'>
   <tbody>

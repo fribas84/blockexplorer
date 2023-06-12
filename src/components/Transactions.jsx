@@ -29,6 +29,7 @@ const Transactions = ({ blockTxs }) => {
       <>
         {blockTxs &&
           <div className='grid place-items-center'>
+            <h2 className='text-2xl text-bold  dark:text-black mt-2'> Block Transactions </h2>
             <Items currentItems={currentItems} />
             <ReactPaginate
               breakLabel="..."
