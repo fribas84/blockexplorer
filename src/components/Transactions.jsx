@@ -17,9 +17,6 @@ const Transactions = ({ blockTxs }) => {
 
     const handlePageClick = (event) => {
       const newOffset = (event.selected * itemsPerPage) % blockTxs.length;
-      console.log(
-        `User requested page number ${event.selected}, which is offset ${newOffset}`
-      );
       setItemOffset(newOffset);
     };
 

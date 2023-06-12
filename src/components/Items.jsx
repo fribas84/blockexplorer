@@ -5,6 +5,8 @@ import { Utils } from 'alchemy-sdk';
 const Items = ({ currentItems }) => {
     if(currentItems){
         return (
+            <>
+            {currentItems && 
             <div className='grid place-items-center'>
                 <table className='md:w-3/4 justify-center bg-white shadow m-5 table-fixed'>
                     <thead>
@@ -33,6 +35,8 @@ const Items = ({ currentItems }) => {
     
     
             </div>
+        }
+        </>
         );
     }
     else{

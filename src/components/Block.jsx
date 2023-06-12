@@ -3,7 +3,6 @@ import { Utils } from 'alchemy-sdk';
 
 
 const Block = ({ block }) => {
-  console.log(block.transactions);
   const [currentTime,setCurrentTime] = useState("");
   useEffect(()=>{
     const convertTimeStamp = () =>{
