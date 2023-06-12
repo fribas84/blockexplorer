@@ -50,8 +50,9 @@ function App() {
   },[blockNumber]);
 
   return (
-  <Container className="App">
-    <BlockNav 
+  <div
+    className='md:min-h-screen mx-auto mt-auto pt-10'>
+      <BlockNav 
       setBlockNumber = {setBlockNumber}
       blockNumber = {blockNumber}
       getLastBlock = {getLastBlock}
@@ -64,7 +65,7 @@ function App() {
       blockTxs = {block.transactions}/>
    
 
-  </Container>)
+  </div>)
 }
 
 export default App;

@@ -11,7 +11,7 @@ const Transactions = ({ blockTxs }) => {
 
 
   if (blockTxs) {
-    const itemsPerPage = 20;
+    const itemsPerPage = 10;
     const endOffset = itemOffset + itemsPerPage;
     const currentItems = blockTxs.slice(itemOffset, endOffset);
     const pageCount = Math.ceil(blockTxs.length / itemsPerPage);
@@ -28,15 +28,15 @@ const Transactions = ({ blockTxs }) => {
     return (
       <>
         {blockTxs &&
-          <Div>
+          <div className='grid place-items-center'>
             <Items currentItems={currentItems} />
             <ReactPaginate
               breakLabel="..."
-              nextLabel="next >"
+              nextLabel=">"
               onPageChange={handlePageClick}
               pageRangeDisplayed={5}
               pageCount={pageCount}
-              previousLabel="< prev"
+              previousLabel="<"
               renderOnZeroPageCount={null}
               previousClassName = "dark:bg-gray-700 dark:border-gray-700 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded m-1"
               nextClassName = "dark:bg-gray-700 dark:border-gray-700 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded m-1"
@@ -45,7 +45,7 @@ const Transactions = ({ blockTxs }) => {
               activeClassName	 = "dark:bg-gray-900 dark:border-gray-600 hover:bg-gray-200 text-white font-bold py-2 px-4 rounded m-1"
 
             />
-          </Div>
+          </div>
         }
       </>
     )

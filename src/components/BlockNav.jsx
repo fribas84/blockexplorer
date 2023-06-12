@@ -30,14 +30,18 @@ const BlockNav = ({setBlockNumber,blockNumber,getLastBlock,lastBlock,block}) => 
     }
     else{
       setBlockNumber(lastBlock);
-    }
-    
+    } 
   }
+  const go2lastBlock = () =>{
+    getLastBlock();
+    setBlockNumber(lastBlock);
+  }
+
   return (
-    <div className='m-1.5'> 
+    <div className='md:flex justify-center m-1.5'> 
             <Button onClick={prevBlock}>  {'< '} Previous </Button>
             <Button onClick={nextBlock}>  Next {' >'} </Button>
-            <Button onClick={getLastBlock}>  Last {' >>'} </Button>
+            <Button onClick={go2lastBlock}>  Last {' >>'} </Button>
     </div>
 
   )

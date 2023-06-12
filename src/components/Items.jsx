@@ -7,35 +7,34 @@ import { Utils } from 'alchemy-sdk';
 const Items = ({ currentItems }) => {
     if(currentItems){
         return (
-            <Div>
-                <Table>
+            <div className='grid place-items-center'>
+                <table className='md:w-3/4 justify-center bg-white shadow m-5 table-fixed'>
                     <thead>
-                        <tr>
-                            <th scope='col'> Hash </th>
-                            <th scope='col'> From </th>
-                            <th scope='col'> To </th>
-                            <th scope='col'> Value</th>
-    
+                        <tr className='border-b'>
+                            <th className='bg-gray-800 text-white space-x-2 p-2' scope='col'> Hash </th>
+                            <th className='bg-gray-800 text-white space-x-2 p-2' scope='col'> From </th>
+                            <th className='bg-gray-800 text-white space-x-2 p-2' scope='col'> To </th>
+                            <th className='bg-gray-800 text-white space-x-2 p-2' scope='col'> Value</th>
                         </tr>
     
                     </thead>
                     <tbody>
                         {currentItems.map((item) => (
-                            <Tr key={item.hash}>
-                                <Th scope="row">{item.hash.substring(0, 10)}... </Th>
-                                <Td>{item.from.substring(0, 10)}... </Td>
-                                <Td>{item.to.substring(0, 10)}... </Td>
-                                <Td>{Utils.formatEther(item.value)} eth </Td>
-                            </Tr>
+                            <tr className='border-b' key={item.hash}>
+                                <td className='p-2 font-bold space-x-2'>{item.hash.substring(0, 15)}... </td>
+                                <td className='p-2 space-x-2'>{item.from.substring(0, 15)}... </td>
+                                <td className='p-2 space-x-2'>{item.to.substring(0, 15)}... </td>
+                                <td className='p-2 space-x-2'>{Utils.formatEther(item.value)} eth </td>
+                            </tr>
                         ))}
                     </tbody>
     
     
     
-                </Table>
+                </table>
     
     
-            </Div>
+            </div>
         );
     }
     else{

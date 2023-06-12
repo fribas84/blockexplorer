@@ -1,6 +1,6 @@
 import {React, useEffect, useState } from 'react';
 import { Utils } from 'alchemy-sdk';
-import {Div,Table,Tr,Th,Td} from './styled';
+import {Div,Table,Tr,Th,Td,Tbody} from './styled';
 
 
 const Block = ({ block }) => {
@@ -18,85 +18,87 @@ const Block = ({ block }) => {
     <>
     {Object.keys(block).length > 0 && (
 
-<Div>
-<Table>
+<div className='grid place-items-center'>
+<table 
+  className='w-3/4 bg-white shadow mt-5 table-auto'>
   <tbody>
-    <Tr>
-      <Th scope="row">
+    <tr 
+    className='border-b'>
+      <th className='bg-gray-800 text-white' scope="row">
        Block Number: 
-      </Th>
-      <Td>
+      </th>
+      <td className='p-2 space-x-2'>
         {block.number}
-      </Td>
-    </Tr>
-    <Tr>
-      <Th scope="row" >
+      </td>
+    </tr>
+    <tr className='border-b'>
+      <th className='bg-gray-800 text-white' scope="row" >
        Hash: 
-      </Th>
-      <Td>
+      </th>
+      <td className='p-2 space-x-2'>
         {block.hash}
-      </Td>
-    </Tr>
-    <Tr>
-      <Th scope="row">
+      </td>
+    </tr>
+    <tr className='border-b'>
+      <th className='bg-gray-800 text-white' scope="row">
        Parent Hash: 
-      </Th>
-      <Td>
+      </th>
+      <td className='p-2 space-x-2'>
         {block.parentHash}
-      </Td>
-    </Tr>
-    <Tr>
-      <Th scope="row">
+      </td>
+    </tr>
+    <tr className='border-b'>
+      <th className='bg-gray-800 text-white' scope="row">
        Time Stamp: 
-      </Th>
-      <Td>
+      </th>
+      <td className='p-2 space-x-2'>
     
         {currentTime}
-      </Td>
-    </Tr>
-    <Tr>
-      <Th scope="row">
+      </td>
+    </tr>
+    <tr className='border-b'>
+      <th className='bg-gray-800 text-white' scope="row">
        Gas Used: 
-      </Th>
-      <Td>
+      </th>
+      <td className='p-2 space-x-2'>
         {Utils.formatUnits(block.gasUsed,"wei")} wei / {Utils.formatEther(block.gasUsed)} eth
-      </Td>
-    </Tr>
-    <Tr>
-      <Th scope="row">
+      </td>
+    </tr>
+    <tr className='border-b'>
+      <th className='bg-gray-800 text-white' scope="row">
        Gas Limit: 
-      </Th>
-      <Td>
+      </th>
+      <td className='p-2 space-x-2'>
       {Utils.formatUnits(block.gasLimit,"wei")} wei / {Utils.formatEther(block.gasLimit)} eth
-      </Td>
-    </Tr>
-    <Tr>
-      <Th scope="row">
+      </td>
+    </tr>
+    <tr className='border-b'>
+      <th className='bg-gray-800 text-white' scope="row">
         Miner / Validator: 
-      </Th>
-      <Td>
+      </th>
+      <td className='p-2 space-x-2'>
         {block.miner}
-      </Td>
-    </Tr>
-    <Tr>
-      <Th scope="row">
+      </td>
+    </tr>
+    <tr className='border-b'>
+      <th className='bg-gray-800 text-white' scope="row">
        Fee: 
-      </Th>
-      <Td>
+      </th>
+      <td className='p-2 space-x-2'>
       {Utils.formatUnits(block.baseFeePerGas,"wei")} wei / {Utils.formatEther(block.baseFeePerGas)} eth
-      </Td>
-    </Tr>
-    <Tr>
-      <Th scope="row">
+      </td>
+    </tr>
+    <tr className='border-b'>
+      <th className='bg-gray-800 text-white' scope="row">
        Transactions: 
-      </Th>
-      <Td>
+      </th>
+      <td className='p-2 space-x-2'>
         {Object(block.transactions).length} transactions
-      </Td>
-    </Tr>
+      </td>
+    </tr>
     </tbody>
-</Table>
-</Div>
+</table>
+</div>
 )}
     </>
     

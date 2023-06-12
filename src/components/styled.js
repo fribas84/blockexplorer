@@ -1,51 +1,44 @@
 import tw from "tailwind-styled-components";
 
 export const Div = tw.div`
-relative
-overflow-x-auto
-shadow-md
-sm:rounded-lg   
+// relative
+// overflow-x-auto
+// shadow-md
+// sm:rounded-lg   
 `
 
 export const Table = tw.table`
 w-full
-text-sm
-text-left
-text-gray-500
-dark:text-gray-400
-shadow-md
-sm:rounded-lg
-m-3
+bg-white
+shadow
+mt-5
+table-auto
 `
 
+export const Tbody = tw.tbody`
+
+`
+
+
 export const Tr = tw.tr`
-bg-white
-dark:bg-gray-700
-dark:border-gray-700
+border-b
 `
 
 export const Th = tw.th`
-px-6
-py-4
-font-medium
-text-gray-300
-whitespace-nowrap
-`
-
-export const Container = tw.div`
-flex
-items-center
-justify-center
-flex-col
-w-90
-grid-cols-1
-mt-15
-pt-10
-mx-auto
+bg-blue-800
+text-white
 `
 
 export const Td = tw.td`
-mx-3
-px-3
-text-white
+p-2
+space-x-2
 `
+export const Container = tw.div`
+md:flex
+md:min-h-screen
+justify-center	
+mx-auto
+my-3
+py-4
+`
+
