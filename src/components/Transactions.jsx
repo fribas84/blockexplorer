@@ -5,7 +5,7 @@ import Items from './Items';
 
 
 
-const Transactions = ({ blockTxs }) => {
+const Transactions = ({ blockTxs,setTransaction }) => {
   const [itemOffset, setItemOffset] = useState(0);
 
 
@@ -26,7 +26,9 @@ const Transactions = ({ blockTxs }) => {
         {blockTxs &&
           <div className='grid place-items-center'>
             <h2 className='text-2xl text-bold  dark:text-black mt-2'> Block Transactions </h2>
-            <Items currentItems={currentItems} />
+            <Items 
+              currentItems={currentItems}
+              setTransaction = {setTransaction} />
             <ReactPaginate
               breakLabel="..."
               nextLabel=">"

@@ -2,7 +2,13 @@ import { Utils } from 'alchemy-sdk';
 
 
 
-const Items = ({ currentItems }) => {
+const Items = ({ currentItems,setTransaction }) => {
+    
+    const handleSelectTransaction = (trans)=>{
+        console.log(trans);
+        setTransaction(trans);
+    }
+    
     if(currentItems){
         return (
             <>
@@ -21,7 +27,9 @@ const Items = ({ currentItems }) => {
                     <tbody>
                         {currentItems.map((item) => (
                             <tr className='border-b' key={item.hash}>
-                                <td className='p-2 font-bold space-x-2'>{item.hash.substring(0, 15)}... </td>
+                                <td className='p-2 space-x-2'><button 
+                                    className="py-2 px-4 border border-gray-900 rounded bg-gray-800 mx-2  text-white font-bold hover:bg-gray-500" 
+                                    onClick={()=>handleSelectTransaction(item)}>{item.hash.substring(0, 15)}...</button> </td>
                                 <td className='p-2 space-x-2'>{item.from.substring(0, 15)}... </td>
                                 <td className='p-2 space-x-2'>{item.to.substring(0, 15)}... </td>
                                 <td className='p-2 space-x-2'>{Utils.formatEther(item.value)} eth </td>

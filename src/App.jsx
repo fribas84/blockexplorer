@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Block from './components/Block';
 import BlockNav from './components/BlockNav';
 import Transactions from './components/Transactions';
+import ModalTransaction from './components/ModalTransaction';
 
 
 
@@ -27,6 +28,8 @@ function App() {
   const [blockNumber, setBlockNumber] = useState();
   const [block, setBlock] = useState({});
   const [lastBlock, setLastBlock] = useState();
+  const [transaction, setTransaction] = useState();
+  const [showModal,setShowModal] = useState(false);
 
 
   const getLastBlock = async ()=>{
@@ -48,6 +51,11 @@ function App() {
     getBlock();
   },[blockNumber]);
 
+  useEffect(()=>{
+    if(transaction){
+      setShowModal(true);
+    }
+  },[transaction])
   return (
   <div
     className='md:min-h-screen mx-auto mt-auto pt-10'>
@@ -61,9 +69,16 @@ function App() {
       block={block}
     />
     <Transactions 
-      blockTxs = {block.transactions}/>
+      blockTxs = {block.transactions}
+      transaction = {transaction}
+      setTransaction = {setTransaction}/>
    
-
+    <ModalTransaction 
+      transaction={transaction}
+      showModal={showModal}
+      setShowModal={setShowModal}
+      setTransaction={setTransaction}
+      />
   </div>)
 }
 
