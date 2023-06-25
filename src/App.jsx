@@ -46,7 +46,12 @@ function App() {
 
   useEffect(() => {
     const getBlock = async () => {
-      setBlock(await alchemy.core.getBlockWithTransactions(blockNumber))
+      try{
+        setBlock(await alchemy.core.getBlockWithTransactions(blockNumber));
+      }catch(ex){
+        console.log(ex);
+      }
+      
     }
     getBlock();
   },[blockNumber]);
@@ -61,6 +66,7 @@ function App() {
   return (
   <div
     className='md:min-h-screen mx-auto mt-auto pt-10'>
+      <h1 className='text-4xl text-bold  dark:text-black mt-2 text-center my-10 '>Ethereum Mainnet Block Explorer</h1>
       <BlockNav 
       setBlockNumber = {setBlockNumber}
       blockNumber = {blockNumber}
