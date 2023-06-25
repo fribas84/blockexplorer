@@ -28,7 +28,7 @@ function App() {
   const [blockNumber, setBlockNumber] = useState();
   const [block, setBlock] = useState({});
   const [lastBlock, setLastBlock] = useState();
-  const [transaction, setTransaction] = useState();
+  const [transaction, setTransaction] = useState({});
   const [showModal,setShowModal] = useState(false);
 
 
