@@ -7,7 +7,7 @@ const ModalTransaction = ({ showModal, setShowModal, transaction, setTransaction
   const handleClose = () => {
     setTransaction({});
   }
-  console.log(transaction);
+
   return (
     <>
       {(Object.keys(transaction).length !== 0) &&
