@@ -52,7 +52,9 @@ function App() {
   },[blockNumber]);
 
   useEffect(()=>{
-    if(transaction){
+    if(Object.keys(transaction).length === 0){
+      setShowModal(false);
+    }else{
       setShowModal(true);
     }
   },[transaction])
